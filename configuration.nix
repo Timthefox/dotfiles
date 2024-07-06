@@ -120,6 +120,7 @@
     bitwarden-desktop
     neovim
     git
+    libreoffice
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
