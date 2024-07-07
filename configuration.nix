@@ -3,7 +3,15 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
-
+# hier werden Variablen definiert mit let und in
+let
+  mountOptions = [
+    "users" # allows any user to mount and umount
+    "nofail" # prevent system from failing if this drive doesn't mount
+    "rw" # read-write
+    "x-gvfs-show" # nautilus can see this drive
+  ];
+in
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -84,12 +92,37 @@
     powerManagement.enable = false;
     open = false;
     nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
+      version = "555.42.02";
+      sha256_64bit = "sha256-k7cI3ZDlKp4mT46jMkLaIrc2YUx1lh1wj/J4SVSHWyk=";
+      sha256_aarch64 = "sha256-rtDxQjClJ+gyrCLvdZlT56YyHQ4sbaL+d5tL4L4VfkA=";
+      openSha256 = "sha256-rtDxQjClJ+gyrCLvdZlT56YyHQ4sbaL+d5tL4L4VfkA=";
+      settingsSha256 = "sha256-rtDxQjClJ+gyrCLvdZlT56YyHQ4sbaL+d5tL4L4VfkA=";
+      persistencedSha256 = "sha256-3ae31/egyMKpqtGEqgtikWcwMwfcqMv2K4MVFa70Bqs=";
+    };
   };
 
   hardware.opengl = {
     enable = true;
     driSupport = true;
     driSupport32Bit = true;
+  };
+
+  environment.variables = {
+    # Fix for firefox crashing with new nvidia drivers
+    MOZ_ENABLE_WAYLAND = 0;
+  };
+
+  boot.supportedFilesystems = [
+    "ext4"
+    "btrfs"
+    "exfat"
+    "ntfs"
+  ];
+  fileSystems."/mnt/games" = {
+    device = "/dev/disk/by-uuid/0a21bdfb-6a38-4639-9481-d6098e542a9a";
+    fsType = "ext4";
+    options = mountOptions ++ ["defaults" "exec"];
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
