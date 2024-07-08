@@ -160,6 +160,7 @@ in
     thunderbird
     protonup-qt # easy ge-proton setup for steam
     lutris
+    discord
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
