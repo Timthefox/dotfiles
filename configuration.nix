@@ -58,9 +58,9 @@ in
   services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "de";
-    xkbVariant = "";
+    variant = "";
   };
 
   # Configure console keymap
@@ -100,7 +100,7 @@ in
   #Schritt 1: Netzwerkdrucker finden:
   services.avahi = {
     enable = true;
-    nssmdns = true;
+    nssmdns4 = true;
     openFirewall = true;
   };
   #Schritt 2: Treiber für HP Drucker
