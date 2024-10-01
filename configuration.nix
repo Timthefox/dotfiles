@@ -84,6 +84,27 @@ in
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
+  environment.etc."paperless-admin-pass".text = "admin";
+  services.paperless = {
+    enable = true;
+    passwordFile = "/etc/paperless-admin-pass";
+  };
+
+  programs.hyprland = {
+    enable = true;
+    package = pkgs.hyprland;
+    xwayland.enable = true;
+  };
+
+  #ACHTUNG - VERSUCH den Drucker zu aktivieren:
+  #Schritt 1: Netzwerkdrucker finden:
+  services.avahi = {
+    enable = true;
+    nssmdns = true;
+    openFirewall = true;
+  };
+  #Schritt 2: Treiber für HP Drucker
+  services.printing.drivers = [pkgs.hplip];  
 
   services.xserver.videoDrivers = ["nvidia"];
 
@@ -143,6 +164,7 @@ in
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
+    package = pkgs.steam.override { extraPkgs = pkgs: [ pkgs.attr]; };
   };
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -155,12 +177,22 @@ in
     # Hier werden die Programme hinzugefügt - systemweit
     bitwarden-desktop
     neovim
+    vscode
     git
     libreoffice
     thunderbird
     protonup-qt # easy ge-proton setup for steam
     lutris
-    discord
+    # discord
+    vesktop
+    prismlauncher #minecraft launcher
+    jdk17
+    jdk8
+    pavucontrol
+
+    # hyprland stuff
+    kitty
+    wofi
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
