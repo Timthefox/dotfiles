@@ -17,6 +17,7 @@ in
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./hardware/nvidia.nix
+      ./hardware/drucker.nix
     ];
 
   # Bootloader.
@@ -67,8 +68,6 @@ in
   # Configure console keymap
   console.keyMap = "de";
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
@@ -97,15 +96,6 @@ in
     xwayland.enable = true;
   };
 
-  #ACHTUNG - VERSUCH den Drucker zu aktivieren:
-  #Schritt 1: Netzwerkdrucker finden:
-  services.avahi = {
-    enable = true;
-    nssmdns4 = true;
-    openFirewall = true;
-  };
-  #Schritt 2: Treiber für HP Drucker
-  services.printing.drivers = [pkgs.hplip];  
 
   environment.variables = {
     # Fix for firefox crashing with new nvidia drivers
