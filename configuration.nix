@@ -1,17 +1,5 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
-# hier werden Variablen definiert mit let und in
-let
-  mountOptions = [
-    "users" # allows any user to mount and umount
-    "nofail" # prevent system from failing if this drive doesn't mount
-    "rw" # read-write
-    "x-gvfs-show" # nautilus can see this drive
-  ];
-in
+
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -19,18 +7,14 @@ in
       ./hardware/nvidia.nix
       ./hardware/drucker.nix
       ./hardware/tastatur.nix
+      ./hardware/festplatten.nix
     ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  networking.hostName = "pc-stephan"; # Define your hostname.
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -93,17 +77,7 @@ in
     MOZ_ENABLE_WAYLAND = 0;
   };
 
-  boot.supportedFilesystems = [
-    "ext4"
-    "btrfs"
-    "exfat"
-    "ntfs"
-  ];
-  fileSystems."/mnt/games" = {
-    device = "/dev/disk/by-uuid/0a21bdfb-6a38-4639-9481-d6098e542a9a";
-    fsType = "ext4";
-    options = mountOptions ++ ["defaults" "exec"];
-  };
+
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
