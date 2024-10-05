@@ -109,6 +109,7 @@
     jdk17
     jdk8
     pavucontrol
+    obsidian
 
     # hyprland stuff
     kitty
