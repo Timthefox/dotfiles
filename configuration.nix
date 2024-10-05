@@ -9,6 +9,7 @@
       ./hardware/tastatur.nix
       ./hardware/festplatten.nix
       ./hardware/sound.nix
+      ./software/kurzbefehle.nix
     ];
 
   # Bootloader.
