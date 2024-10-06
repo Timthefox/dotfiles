@@ -11,6 +11,7 @@
       ./hardware/sound.nix
       ./software/kurzbefehle.nix
       ./software/gnome.nix
+      ./software/standardProgramme.nix
     ];
 
   # Bootloader.
