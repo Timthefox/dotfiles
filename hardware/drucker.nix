@@ -7,8 +7,13 @@
     openFirewall = true;
   };
   #Schritt 2: Treiber für HP Drucker
-  services.printing.drivers = [pkgs.hplip];
+  services.printing.drivers = [pkgs.hplipWithPlugin];
   # Enable CUPS to print documents.
   services.printing.enable = true;
   
+  # scanner anstellen
+  hardware.sane = {
+    enable = true;
+    extraBackends = [pkgs.hplipWithPlugin];
+  };
 }
