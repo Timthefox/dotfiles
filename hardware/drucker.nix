@@ -10,7 +10,7 @@
   services.printing.drivers = [pkgs.hplipWithPlugin];
   # Enable CUPS to print documents.
   services.printing.enable = true;
-  
+
   # scanner anstellen
   hardware.sane = {
     enable = true;

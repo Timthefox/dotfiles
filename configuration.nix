@@ -1,20 +1,18 @@
-{ pkgs, ... }:
-
-{
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./hardware/nvidia.nix
-      ./hardware/drucker.nix
-      ./hardware/tastatur.nix
-      ./hardware/festplatten.nix
-      ./hardware/sound.nix
-      ./software/kurzbefehle.nix
-      ./software/gnome.nix
-      ./software/standardProgramme.nix
-      ./software/vscode.nix
-      ./software/paperless.nix
-    ];
+{pkgs, ...}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./hardware/nvidia.nix
+    ./hardware/drucker.nix
+    ./hardware/tastatur.nix
+    ./hardware/festplatten.nix
+    ./hardware/sound.nix
+    ./software/kurzbefehle.nix
+    ./software/gnome.nix
+    ./software/standardProgramme.nix
+    ./software/vscode.nix
+    ./software/paperless.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -43,20 +41,16 @@
     LC_TIME = "de_DE.UTF-8";
   };
 
-
   programs.hyprland = {
     enable = true;
     package = pkgs.hyprland;
     xwayland.enable = true;
   };
 
-
   environment.variables = {
     # Fix for firefox crashing with new nvidia drivers
     MOZ_ENABLE_WAYLAND = 0;
   };
-
-
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -65,7 +59,7 @@
   users.users.stephan = {
     isNormalUser = true;
     description = "Stephan Gollub";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
   };
 
   # Install firefox.
@@ -73,7 +67,7 @@
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
-    package = pkgs.steam.override { extraPkgs = pkgs: [ pkgs.attr]; };
+    package = pkgs.steam.override {extraPkgs = pkgs: [pkgs.attr];};
   };
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -81,7 +75,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     # Hier werden die Programme hinzugefügt - systemweit
     bitwarden-desktop

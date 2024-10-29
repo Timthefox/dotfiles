@@ -6,7 +6,7 @@ let
     "rw" # read-write
     "x-gvfs-show" # nautilus can see this drive
   ];
-in{
+in {
   boot.supportedFilesystems = [
     "ext4"
     "btrfs"
