@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 
 {
   imports =
@@ -12,6 +12,7 @@
       ./software/kurzbefehle.nix
       ./software/gnome.nix
       ./software/standardProgramme.nix
+      ./software/vscode.nix
     ];
 
   # Bootloader.
@@ -92,7 +93,6 @@
     # Hier werden die Programme hinzugefügt - systemweit
     bitwarden-desktop
     neovim
-    vscode
     git
     libreoffice
     thunderbird
