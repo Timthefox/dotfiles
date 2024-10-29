@@ -5,7 +5,7 @@
 }: let
   extensions = (import inputs.nix-vscode-extensions).extensions.${pkgs.system}.vscode-marketplace;
 in {
-  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 
   environment.systemPackages = [
     (pkgs.vscode-with-extensions.override {
@@ -14,6 +14,7 @@ in {
       ];
     })
     pkgs.nixd
+    pkgs.alejandra
   ];
 
   home-manager.users.stephan.xdg.configFile."Code/User/settings.json".text = ''
