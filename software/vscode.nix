@@ -2,16 +2,18 @@
   inputs,
   pkgs,
   ...
-}: {
+}: let
+  extensions = (import inputs.nix-vscode-extensions).extensions.${pkgs.system}.vscode-marketplace;
+in {
   nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
-  environment.systemPackages = with pkgs; [
-    (vscode-with-extensions.override {
-      vscodeExtensions = [
-        ((import inputs.nix-vscode-extensions).extensions.${pkgs.system}.vscode-marketplace.jnoortheen.nix-ide)
+  environment.systemPackages = [
+    (pkgs.vscode-with-extensions.override {
+      vscodeExtensions = with extensions; [
+        jnoortheen.nix-ide
       ];
     })
-    nixd
+    pkgs.nixd
   ];
 
   home-manager.users.stephan.xdg.configFile."Code/User/settings.json".text = ''
