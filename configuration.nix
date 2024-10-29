@@ -13,6 +13,7 @@
       ./software/gnome.nix
       ./software/standardProgramme.nix
       ./software/vscode.nix
+      ./software/paperless.nix
     ];
 
   # Bootloader.
@@ -42,11 +43,6 @@
     LC_TIME = "de_DE.UTF-8";
   };
 
-  environment.etc."paperless-admin-pass".text = "admin";
-  services.paperless = {
-    enable = true;
-    passwordFile = "/etc/paperless-admin-pass";
-  };
 
   programs.hyprland = {
     enable = true;
