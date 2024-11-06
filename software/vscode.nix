@@ -11,10 +11,12 @@ in {
     (pkgs.vscode-with-extensions.override {
       vscodeExtensions = with extensions; [
         jnoortheen.nix-ide
+        ms-python.python
       ];
     })
     pkgs.nixd
     pkgs.alejandra
+    pkgs.python3
   ];
 
   home-manager.users.stephan.xdg.configFile."Code/User/settings.json".text = ''
