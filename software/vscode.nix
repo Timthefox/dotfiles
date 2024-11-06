@@ -1,5 +1,6 @@
 {
   inputs,
+  unstable-pkgs,
   pkgs,
   ...
 }: let
@@ -8,7 +9,7 @@ in {
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 
   environment.systemPackages = [
-    (pkgs.vscode-with-extensions.override {
+    (unstable-pkgs.vscode-with-extensions.override {
       vscodeExtensions = with extensions; [
         jnoortheen.nix-ide
         ms-python.python
