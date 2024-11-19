@@ -92,6 +92,7 @@
     jdk8
     pavucontrol
     obsidian
+    gimp
 
     # hyprland stuff
     kitty
