@@ -6,12 +6,9 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
-  environment.gnome.excludePackages =
-    (with pkgs; [
+  environment.gnome.excludePackages = with pkgs; [
       #gnome-photos
       gnome-tour
-    ])
-    ++ (with pkgs.gnome; [
       atomix # puzzle game
       cheese # webcam tool
       epiphany # web browser
@@ -25,7 +22,7 @@
       #nautilus
       #totem # video player
       tali # poker game
-    ]);
+    ];
 
   home-manager.users.stephan.dconf.settings = {
     "org/gnome/desktop/interface" = {
