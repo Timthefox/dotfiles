@@ -40,6 +40,8 @@
     LC_TELEPHONE = "de_DE.UTF-8";
     LC_TIME = "de_DE.UTF-8";
   };
+  # Linux-Kernel soll aktualisiert werden: bei system rebuild
+  boot.kernelPackages = pkgs.linuxPackages_6_11;
 
   programs.hyprland = {
     enable = true;
