@@ -49,11 +49,6 @@
     xwayland.enable = true;
   };
 
-  environment.variables = {
-    # Fix for firefox crashing with new nvidia drivers
-    MOZ_ENABLE_WAYLAND = 0;
-  };
-
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
