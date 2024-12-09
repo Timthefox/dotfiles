@@ -22,6 +22,7 @@
       #nautilus
       #totem # video player
       tali # poker game
+      snapshot #webcam, die zZ gar nicht vorhanden ist
     ];
 
   home-manager.users.stephan.dconf.settings = {
