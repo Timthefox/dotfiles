@@ -43,11 +43,11 @@
   # Linux-Kernel soll aktualisiert werden: bei system rebuild
   boot.kernelPackages = pkgs.linuxPackages_6_11;
 
-  programs.hyprland = {
-    enable = true;
-    package = pkgs.hyprland;
-    xwayland.enable = true;
-  };
+ # programs.hyprland = {
+ #   enable = true;
+ #   package = pkgs.hyprland;
+ #   xwayland.enable = true;
+ # };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -92,8 +92,8 @@
     gimp
 
     # hyprland stuff
-    kitty
-    wofi
+  #  kitty
+  #  wofi
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
