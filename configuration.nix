@@ -123,10 +123,13 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
 
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
+  nix.settings = {
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+    download-speed = 6250; # limit download speed to 50 Mbps
+  };
 
   home-manager.users.stephan.home.stateVersion = "24.11";
 }
