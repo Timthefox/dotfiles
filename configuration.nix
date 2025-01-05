@@ -90,6 +90,7 @@
     pavucontrol
     obsidian
     gimp
+    ghostty
 
     # hyprland stuff
   #  kitty
