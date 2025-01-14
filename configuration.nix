@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  username,
+  ...
+}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -43,17 +47,17 @@
   # Linux-Kernel soll aktualisiert werden: bei system rebuild
   boot.kernelPackages = pkgs.linuxPackages_6_11;
 
- # programs.hyprland = {
- #   enable = true;
- #   package = pkgs.hyprland;
- #   xwayland.enable = true;
- # };
+  # programs.hyprland = {
+  #   enable = true;
+  #   package = pkgs.hyprland;
+  #   xwayland.enable = true;
+  # };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.stephan = {
+  users.users.${username} = {
     isNormalUser = true;
     description = "Stephan Gollub";
     extraGroups = ["networkmanager" "wheel"];
@@ -94,8 +98,8 @@
     signal-desktop
 
     # hyprland stuff
-  #  kitty
-  #  wofi
+    #  kitty
+    #  wofi
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -133,5 +137,5 @@
     download-speed = 6250; # limit download speed to 50 Mbps
   };
 
-  home-manager.users.stephan.home.stateVersion = "24.11";
+  home-manager.users.${username}.home.stateVersion = "24.11";
 }

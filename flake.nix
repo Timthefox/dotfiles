@@ -28,6 +28,7 @@
           inherit system;
           config.allowUnfree = true;
         };
+        username = "stephan";
       };
     };
   };

@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  username,
+  ...
+}: {
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
@@ -7,25 +11,25 @@
   services.xserver.desktopManager.gnome.enable = true;
 
   environment.gnome.excludePackages = with pkgs; [
-      #gnome-photos
-      gnome-tour
-      atomix # puzzle game
-      cheese # webcam tool
-      epiphany # web browser
-      evince # document viewer
-      geary # email reader
-      gnome-characters
-      #gnome-music
-      #gnome-terminal
-      hitori # sudoku game
-      iagno # go game
-      #nautilus
-      #totem # video player
-      tali # poker game
-      snapshot #webcam, die zZ gar nicht vorhanden ist
-    ];
+    #gnome-photos
+    gnome-tour
+    atomix # puzzle game
+    cheese # webcam tool
+    epiphany # web browser
+    evince # document viewer
+    geary # email reader
+    gnome-characters
+    #gnome-music
+    #gnome-terminal
+    hitori # sudoku game
+    iagno # go game
+    #nautilus
+    #totem # video player
+    tali # poker game
+    snapshot #webcam, die zZ gar nicht vorhanden ist
+  ];
 
-  home-manager.users.stephan.dconf.settings = {
+  home-manager.users.${username}.dconf.settings = {
     "org/gnome/desktop/interface" = {
       clock-show-seconds = true;
       clock-show-weekday = true;

@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  username,
+  ...
+}: {
   #Drucker aktivieren:
   #Schritt 1: Netzwerkdrucker finden:
   services.avahi = {
@@ -16,4 +20,5 @@
     enable = true;
     extraBackends = [pkgs.hplipWithPlugin];
   };
+  users.users.${username}.extraGroups = ["scanner" "lp"];
 }

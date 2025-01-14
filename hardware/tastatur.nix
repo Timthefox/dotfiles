@@ -1,4 +1,4 @@
-{
+{username, ...}: {
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "de";
@@ -20,5 +20,5 @@
     '';
   };
 
-  users.users.stephan.extraGroups = ["input" "uinput"];
+  users.users.${username}.extraGroups = ["input" "uinput"];
 }

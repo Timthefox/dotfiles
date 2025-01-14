@@ -2,6 +2,7 @@
   inputs,
   unstable-pkgs,
   pkgs,
+  username,
   ...
 }: let
   extensions = (import inputs.nix-vscode-extensions).extensions.${pkgs.system}.vscode-marketplace;
@@ -20,7 +21,7 @@ in {
     pkgs.python3
   ];
 
-  home-manager.users.stephan.xdg.configFile."Code/User/settings.json".text = ''
+  home-manager.users.${username}.xdg.configFile."Code/User/settings.json".text = ''
     {
       "git.autofetch": true,
       "git.confirmSync": false
