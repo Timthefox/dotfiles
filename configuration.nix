@@ -91,6 +91,7 @@
     obsidian
     gimp
     ghostty
+    signal-desktop
 
     # hyprland stuff
   #  kitty
