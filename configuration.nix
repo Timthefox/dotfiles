@@ -96,6 +96,7 @@
     gimp
     ghostty
     signal-desktop
+    onlyoffice-desktopeditors
 
     # hyprland stuff
     #  kitty

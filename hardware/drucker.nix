@@ -19,6 +19,8 @@
   hardware.sane = {
     enable = true;
     extraBackends = [pkgs.hplipWithPlugin];
+    drivers.scanSnap.enable = true;
   };
+
   users.users.${username}.extraGroups = ["scanner" "lp"];
 }
