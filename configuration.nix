@@ -97,6 +97,7 @@
     ghostty
     signal-desktop
     onlyoffice-desktopeditors
+    ffmpeg 
 
     # hyprland stuff
     #  kitty
