@@ -98,6 +98,7 @@
     signal-desktop
     onlyoffice-desktopeditors
     ffmpeg 
+    vlc
 
     # hyprland stuff
     #  kitty
