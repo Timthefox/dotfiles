@@ -17,6 +17,7 @@
     ./software/vscode.nix
     ./software/paperless.nix
     ./software/nh.nix
+    ./software/programme.nix
   ];
 
   # Bootloader.
@@ -48,15 +49,6 @@
   # Linux-Kernel soll aktualisiert werden: bei system rebuild
   boot.kernelPackages = pkgs.linuxPackages_6_11;
 
-  # programs.hyprland = {
-  #   enable = true;
-  #   package = pkgs.hyprland;
-  #   xwayland.enable = true;
-  # };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${username} = {
     isNormalUser = true;
@@ -64,69 +56,8 @@
     extraGroups = ["networkmanager" "wheel"];
   };
 
-  # Install firefox.
-  programs.firefox = {
-    enable = true;
-    nativeMessagingHosts.packages = [pkgs.vdhcoapp];
-  };
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    package = pkgs.steam.override {extraPkgs = pkgs: [pkgs.attr];};
-  };
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-    # Hier werden die Programme hinzugefügt - systemweit
-    bitwarden-desktop
-    neovim
-    git
-    libreoffice
-    thunderbird
-    protonup-qt # easy ge-proton setup for steam
-    lutris
-    # discord
-    vesktop
-    prismlauncher #minecraft launcher
-    jdk17
-    jdk8
-    pavucontrol
-    obsidian
-    gimp
-    ghostty
-    signal-desktop
-    onlyoffice-desktopeditors
-    ffmpeg 
-    vlc
-
-    # hyprland stuff
-    #  kitty
-    #  wofi
-  ];
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

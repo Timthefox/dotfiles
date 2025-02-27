@@ -9,25 +9,8 @@
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
-
-  environment.gnome.excludePackages = with pkgs; [
-    #gnome-photos
-    gnome-tour
-    atomix # puzzle game
-    cheese # webcam tool
-    epiphany # web browser
-    evince # document viewer
-    geary # email reader
-    gnome-characters
-    #gnome-music
-    #gnome-terminal
-    hitori # sudoku game
-    iagno # go game
-    #nautilus
-    #totem # video player
-    tali # poker game
-    snapshot #webcam, die zZ gar nicht vorhanden ist
-  ];
+  # Gnome Hilfsprogramme ausblenden
+  services.gnome.core-utilities.enable = false;
 
   home-manager.users.${username} = {
     dconf.settings = {
