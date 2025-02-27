@@ -16,6 +16,7 @@
     ./software/standardProgramme.nix
     ./software/vscode.nix
     ./software/paperless.nix
+    ./software/nh.nix
   ];
 
   # Bootloader.
