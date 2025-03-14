@@ -9,6 +9,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+    zenix = {
+      url = "github:anders130/zenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
+    nur.url = "github:nix-community/NUR";
   };
 
   outputs = inputs @ {
@@ -31,5 +37,6 @@
         username = "stephan";
       };
     };
+    overlays = import ./overlays.nix inputs;
   };
 }

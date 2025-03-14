@@ -1,5 +1,6 @@
 {
   pkgs,
+  inputs,
   username,
   ...
 }: {
@@ -18,6 +19,7 @@
     ./software/paperless.nix
     ./software/nh.nix
     ./software/programme.nix
+    ./software/zenix.nix
   ];
 
   # Bootloader.
@@ -58,6 +60,7 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.overlays = [inputs.self.outputs.overlays.default];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -71,9 +74,13 @@
     experimental-features = [
       "nix-command"
       "flakes"
+      "pipe-operators"
     ];
     download-speed = 6250; # limit download speed to 50 Mbps
   };
 
-  home-manager.users.${username}.home.stateVersion = "24.11";
+  home-manager = {
+    users.${username}.home.stateVersion = "24.11";
+    useGlobalPkgs = true;
+  };
 }
