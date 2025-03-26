@@ -29,6 +29,7 @@
     file-roller
     loupe
     nautilus
+    decibels
   ];
   # Install firefox.
   programs.firefox = {
