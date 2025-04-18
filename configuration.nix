@@ -49,7 +49,7 @@
     LC_TIME = "de_DE.UTF-8";
   };
   # Linux-Kernel soll aktualisiert werden: bei system rebuild
-  boot.kernelPackages = pkgs.linuxPackages_6_11;
+  boot.kernelPackages = pkgs.linuxPackages_6_12;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${username} = {
