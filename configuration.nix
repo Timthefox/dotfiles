@@ -16,7 +16,7 @@
     ./software/gnome.nix
     ./software/standardProgramme.nix
     ./software/vscode.nix
-    ./software/paperless.nix
+   # ./software/paperless.nix
     ./software/nh.nix
     ./software/programme.nix
     ./software/zenix.nix
