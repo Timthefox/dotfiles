@@ -10,7 +10,7 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
   # Gnome Hilfsprogramme ausblenden
-  services.gnome.core-utilities.enable = false;
+  services.gnome.core-apps.enable = false;
 
   home-manager.users.${username} = {
     dconf.settings = {

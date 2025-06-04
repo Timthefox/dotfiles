@@ -6,6 +6,7 @@
       chrome = {
         enable = false;
       };
+      nativeMessagingHosts.packages = [pkgs.vdhcoapp];
       profiles.default = {
         id = 0;
         isDefault = true;
