@@ -30,6 +30,7 @@
     loupe
     nautilus
     decibels
+    nextcloud-client
   ];
   # Install firefox.
   programs.firefox = {
