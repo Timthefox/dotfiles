@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -21,16 +25,21 @@
     gimp
     ghostty
     signal-desktop
-    ffmpeg 
+    ffmpeg
     vlc
-      # Programme, die installiert werden
+    # Programme, die installiert werden
     gnome-calculator
     baobab
     file-roller
     loupe
     nautilus
+    nautilus-python
     decibels
     nextcloud-client
+  ];
+  environment.sessionVariables.NAUTILUS_4_EXTENSION_DIR = lib.mkForce "${pkgs.nautilus-python}/lib/nautilus/extensions-4";
+  environment.pathsToLink = [
+    "/share/nautilus-python/extensions"
   ];
   # Install firefox.
   programs.firefox = {
