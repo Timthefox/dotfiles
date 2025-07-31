@@ -78,6 +78,27 @@
         "type": "github"
       }
     },
+    "lsfg-vk-flake": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1753938292,
+        "narHash": "sha256-akeUWgvIIi163s/femzvTOuqqOiOB/8US5ioHsNqhYY=",
+        "owner": "pabloaul",
+        "repo": "lsfg-vk-flake",
+        "rev": "081cd66b1369188777ea146a759d35e99ea6b031",
+        "type": "github"
+      },
+      "original": {
+        "owner": "pabloaul",
+        "ref": "main",
+        "repo": "lsfg-vk-flake",
+        "type": "github"
+      }
+    },
     "nix-vscode-extensions": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -198,6 +219,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "lsfg-vk-flake": "lsfg-vk-flake",
         "nix-vscode-extensions": "nix-vscode-extensions",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-unstable": "nixpkgs-unstable",

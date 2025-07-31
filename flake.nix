@@ -15,6 +15,10 @@
       inputs.home-manager.follows = "home-manager";
     };
     nur.url = "github:nix-community/NUR";
+    lsfg-vk-flake = {
+      url = "github:pabloaul/lsfg-vk-flake/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
@@ -27,6 +31,7 @@
       modules = [
         ./configuration.nix
         home-manager.nixosModules.home-manager
+        inputs.lsfg-vk-flake.nixosModules.default
       ];
       specialArgs = {
         inherit inputs;
