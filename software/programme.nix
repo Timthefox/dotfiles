@@ -78,4 +78,8 @@
     enable = true;
     ui.enable = true; # installs gui for configuring lsfg-vk
   };
+  programs.kdeconnect = {
+    enable = true;
+    package = pkgs.gnomeExtensions.gsconnect;
+  };
 }
