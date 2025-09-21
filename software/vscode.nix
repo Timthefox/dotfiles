@@ -35,7 +35,7 @@ in {
           },
           "options": {
             "nixos": {
-               "expr": "(builtins.getFlake \"/home/stephan/.dotfiles\").nixosConfigurations.linuxrechner1.options"
+               "expr": "(builtins.getFlake \"/home/stephan/.dotfiles\").nixosConfigurations.pc-stephan.options"
             },
           },
         }

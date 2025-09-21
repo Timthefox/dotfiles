@@ -26,7 +26,7 @@
     home-manager,
     ...
   }: {
-    nixosConfigurations.linuxrechner1 = nixpkgs.lib.nixosSystem rec {
+    nixosConfigurations.pc-stephan = nixpkgs.lib.nixosSystem rec {
       system = "x86_64-linux";
       modules = [
         ./configuration.nix
