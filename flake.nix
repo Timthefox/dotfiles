@@ -52,13 +52,13 @@
       pc-stephan = mkHost {
         username = "stephan";
         modules = [
-          ./configuration.nix
+	  ./hosts/pc-stephan/configuration.nix
         ];
       };
       laptop-musik = mkHost {
         username = "music";
         modules = [
-          ./configuration.nix
+	  ./hosts/laptop-musik/configuration.nix
         ];
       };
     };

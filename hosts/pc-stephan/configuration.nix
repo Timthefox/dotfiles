@@ -5,21 +5,19 @@
   ...
 }: {
   imports = [
-    # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./hardware/nvidia.nix
-    ./hardware/drucker.nix
-    ./hardware/tastatur.nix
-    ./hardware/festplatten.nix
-    ./hardware/sound.nix
-    ./software/kurzbefehle.nix
-    ./software/gnome.nix
-    ./software/standardProgramme.nix
-    ./software/vscode.nix
-   # ./software/paperless.nix
-    ./software/nh.nix
-    ./software/programme.nix
-    ./software/zenix.nix
+    ./nvidia.nix
+    ./festplatten.nix
+    ../../hardware/drucker.nix
+    ../../hardware/tastatur.nix
+    ../../hardware/sound.nix
+    ../../software/kurzbefehle.nix
+    ../../software/gnome.nix
+    ../../software/standardProgramme.nix
+    ../../software/vscode.nix
+    ../../software/nh.nix
+    ../../software/programme.nix
+    ../../software/zenix.nix
   ];
 
   # Bootloader.

@@ -47,4 +47,5 @@
         })
         autostartPrograms);
   };
+  programs.kdeconnect.package = pkgs.gnomeExtensions.gsconnect;
 }
