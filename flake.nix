@@ -25,21 +25,41 @@
     nixpkgs,
     home-manager,
     ...
-  }: {
-    nixosConfigurations.pc-stephan = nixpkgs.lib.nixosSystem rec {
-      system = "x86_64-linux";
-      modules = [
-        ./configuration.nix
-        home-manager.nixosModules.home-manager
-        inputs.lsfg-vk-flake.nixosModules.default
-      ];
-      specialArgs = {
-        inherit inputs;
-        unstable-pkgs = import inputs.nixpkgs-unstable {
-          inherit system;
-          config.allowUnfree = true;
+  }: let
+    mkHost = {
+      username,
+      modules ? [],
+      system ? "x86_64-linux",
+    }:
+      nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules =
+          modules
+          ++ [
+            home-manager.nixosModules.home-manager
+            inputs.lsfg-vk-flake.nixosModules.default
+          ];
+        specialArgs = {
+          inherit inputs username;
+          unstable-pkgs = import inputs.nixpkgs-unstable {
+            inherit system;
+            config.allowUnfree = true;
+          };
         };
+      };
+  in {
+    nixosConfigurations = {
+      pc-stephan = mkHost {
         username = "stephan";
+        modules = [
+          ./configuration.nix
+        ];
+      };
+      laptop-musik = mkHost {
+        username = "music";
+        modules = [
+          ./configuration.nix
+        ];
       };
     };
     overlays = import ./overlays.nix inputs;
