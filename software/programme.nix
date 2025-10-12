@@ -17,6 +17,8 @@
     lutris
     # discord
     vesktop
+    #Audacity
+    audacity
     prismlauncher #minecraft launcher
     jdk17
     jdk8
