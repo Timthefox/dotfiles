@@ -17,6 +17,7 @@
     ../../software/programme.nix
     ../../software/zenix.nix
     ../../software/plasma.nix
+    ../../software/daw-ardour.nix
   ];
 
   # Bootloader.

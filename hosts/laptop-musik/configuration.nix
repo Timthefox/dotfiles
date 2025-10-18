@@ -12,6 +12,7 @@
     ../../software/nh.nix
     ../../software/programme.nix
     ../../software/zenix.nix
+    ../../software/daw-ardour.nix
   ];
 
   # Bootloader.
