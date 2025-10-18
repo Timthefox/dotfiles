@@ -1,5 +1,4 @@
 {
-  pkgs,
   inputs,
   username,
   ...
@@ -12,12 +11,12 @@
     ../../hardware/tastatur.nix
     ../../hardware/sound.nix
     ../../software/kurzbefehle.nix
-    ../../software/gnome.nix
     ../../software/standardProgramme.nix
     ../../software/vscode.nix
     ../../software/nh.nix
     ../../software/programme.nix
     ../../software/zenix.nix
+    ../../software/plasma.nix
   ];
 
   # Bootloader.
