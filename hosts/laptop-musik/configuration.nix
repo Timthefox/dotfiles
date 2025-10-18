@@ -3,6 +3,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./remote-rebuild.nix
     ../../hardware/drucker.nix
     ../../hardware/tastatur.nix
     ../../hardware/sound.nix
