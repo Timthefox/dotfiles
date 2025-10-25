@@ -2,7 +2,12 @@ inputs: {
   default = inputs.nixpkgs.lib.composeManyExtensions [
     inputs.nur.overlays.default
     inputs.zenix.overlays.default
-    (final: prev: {
+    (final: prev: let
+      unstable = import inputs.nixpkgs-unstable {
+        inherit (prev) system;
+        config.allowUnfree = true;
+      };
+    in {
       nautilus = prev.nautilus.overrideAttrs (nprev: {
         buildInputs =
           nprev.buildInputs
@@ -12,6 +17,7 @@ inputs: {
             gst-plugins-ugly
           ]);
       });
+      inherit (unstable) lutris;
     })
   ];
 }
