@@ -19,6 +19,10 @@
       url = "github:pabloaul/lsfg-vk-flake/main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
@@ -52,13 +56,13 @@
       pc-stephan = mkHost {
         username = "stephan";
         modules = [
-	  ./hosts/pc-stephan/configuration.nix
+          ./hosts/pc-stephan/configuration.nix
         ];
       };
       laptop-musik = mkHost {
         username = "music";
         modules = [
-	  ./hosts/laptop-musik/configuration.nix
+          ./hosts/laptop-musik/configuration.nix
         ];
       };
     };
