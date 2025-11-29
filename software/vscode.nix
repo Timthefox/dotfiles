@@ -5,7 +5,7 @@
   username,
   ...
 }: let
-  extensions = (import inputs.nix-vscode-extensions).extensions.${pkgs.system}.vscode-marketplace;
+  extensions = (import inputs.nix-vscode-extensions).extensions.${pkgs.stdenv.hostPlatform.system}.vscode-marketplace;
 in {
   nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 
