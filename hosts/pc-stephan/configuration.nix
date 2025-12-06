@@ -22,7 +22,10 @@
   ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot = {
+    enable = true;
+    windows."windows-10".efiDeviceHandle = "HD0b65535a1"; 
+  };
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "pc-stephan"; # Define your hostname.
