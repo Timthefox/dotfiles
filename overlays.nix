@@ -18,6 +18,12 @@ inputs: {
             gst-plugins-ugly
           ]);
       });
+      vscode = unstable.vscode-with-extensions.override {
+        vscodeExtensions = with inputs.nix-vscode-extensions.extensions.${system}.vscode-marketplace; [
+          jnoortheen.nix-ide
+          ms-python.python
+        ];
+      };
       inherit (unstable) lutris;
     })
     (final: prev: {
