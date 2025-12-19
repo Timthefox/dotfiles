@@ -1,5 +1,5 @@
-{username, inputs, pkgs, ...}: {
-  home-manager.users.${username} = {
+{inputs, pkgs, ...}: {
+  hm = {
     imports = [inputs.zenix.homeModules.default];
     programs.zenix = {
       enable = true;

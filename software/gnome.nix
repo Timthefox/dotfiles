@@ -1,6 +1,5 @@
 {
   pkgs,
-  username,
   ...
 }: {
   # Enable the X11 windowing system.
@@ -12,7 +11,7 @@
   # Gnome Hilfsprogramme ausblenden
   services.gnome.core-apps.enable = false;
 
-  home-manager.users.${username} = {
+  hm = {
     dconf.settings = {
       "org/gnome/desktop/interface" = {
         clock-show-seconds = true;

@@ -1,7 +1,6 @@
 {
   inputs,
   pkgs,
-  username,
   ...
 }: {
   # Enable the KDE Plasma Desktop Environment.
@@ -11,7 +10,7 @@
   environment.systemPackages = with pkgs; [
     kdePackages.sddm-kcm
   ];
-  home-manager.users.${username} = {
+  hm = {
     imports = [inputs.plasma-manager.homeModules.plasma-manager];
     programs.plasma = {
       enable = true;

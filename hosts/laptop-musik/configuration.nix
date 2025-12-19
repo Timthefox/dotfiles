@@ -1,12 +1,12 @@
-{ config, inputs, pkgs, username, ... }:
-
 {
+  pkgs,
+  username,
+  ...
+}: {
   imports = [
     ./hardware-configuration.nix
     ./remote-rebuild.nix
-    ../../hardware/drucker.nix
-    ../../hardware/tastatur.nix
-    ../../hardware/sound.nix
+    ../../shared
     ../../software/standardProgramme.nix
     ../../software/vscode.nix
     ../../software/nh.nix
@@ -21,10 +21,6 @@
 
   networking.hostName = "laptop-musik";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -59,27 +55,11 @@
   users.users.${username} = {
     isNormalUser = true;
     description = "music";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
-      kdePackages.kate
       kdePackages.kamera
     ];
   };
-  system.stateVersion = "24.11"; # Did you read the comment?
-
-  nix.settings = {
-    experimental-features = [
-      "nix-command"
-      "flakes"
-      "pipe-operators"
-    ];
-    download-speed = 6250; # limit download speed to 50 Mbps
-  };
-
-  home-manager = {
-    users.${username}.home.stateVersion = "25.05";
-    useGlobalPkgs = true;
-  };
-  nixpkgs.overlays = [inputs.self.outputs.overlays.default];
-  nixpkgs.config.allowUnfree = true;
+  system.stateVersion = "24.11";
+  hm.home.stateVersion = "25.05";
 }
