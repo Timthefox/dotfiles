@@ -28,6 +28,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+    dotfiles-anders130.url = "github:anders130/dotfiles";
   };
 
   outputs = inputs @ {
@@ -50,10 +51,6 @@
           ];
         specialArgs = {
           inherit inputs username;
-          unstable-pkgs = import inputs.nixpkgs-unstable {
-            inherit system;
-            config.allowUnfree = true;
-          };
         };
       };
   in {

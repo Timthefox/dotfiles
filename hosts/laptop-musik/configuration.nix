@@ -7,7 +7,6 @@
     ../../hardware/drucker.nix
     ../../hardware/tastatur.nix
     ../../hardware/sound.nix
-    ../../software/kurzbefehle.nix
     ../../software/standardProgramme.nix
     ../../software/vscode.nix
     ../../software/nh.nix
