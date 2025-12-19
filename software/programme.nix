@@ -75,7 +75,12 @@
     enable = true;
     remotePlay.openFirewall = true;
     package = pkgs.steam.override {extraPkgs = pkgs: [pkgs.attr];};
+    extraCompatPackages = with pkgs; [
+      proton-ge-bin
+      protontricks
+    ];
   };
+
   services.lsfg-vk = {
     enable = true;
     ui.enable = true; # installs gui for configuring lsfg-vk

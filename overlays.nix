@@ -24,7 +24,7 @@ inputs: {
           ms-python.python
         ];
       };
-      inherit (unstable) lutris;
+      inherit (unstable) lutris proton-ge-bin;
     })
     (final: prev: {
       kdePackages =
