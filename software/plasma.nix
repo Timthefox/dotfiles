@@ -2,14 +2,22 @@
   inputs,
   pkgs,
   ...
-}: {
-  # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
+}: let
+  sddm-astronaut = pkgs.sddm-astronaut.override {
+    themeConfig = {
+      theme = "astronaut";
+    };
+  };
+in {
+  # Enable the KDE Plasma Desktop Environment.+
+  services.displayManager.sddm = {
+    enable = true;
+    theme = "sddm-astronaut-theme";
+    extraPackages = [sddm-astronaut];
+  };
   services.desktopManager.plasma6.enable = true;
+  environment.systemPackages = [sddm-astronaut];
 
-  environment.systemPackages = with pkgs; [
-    kdePackages.sddm-kcm
-  ];
   hm = {
     imports = [inputs.plasma-manager.homeModules.plasma-manager];
     programs.plasma = {
