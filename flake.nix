@@ -9,10 +9,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+    zen-browser = {
+      url = "github:youwen5/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     zenix = {
       url = "github:anders130/zenix";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
+      inputs.zen-browser.follows = "zen-browser";
     };
     nur.url = "github:nix-community/NUR";
     lsfg-vk-flake = {

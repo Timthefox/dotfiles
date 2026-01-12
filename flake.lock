@@ -1826,6 +1826,7 @@
         "nixpkgs-unstable": "nixpkgs-unstable_2",
         "nur": "nur_2",
         "plasma-manager": "plasma-manager",
+        "zen-browser": "zen-browser_2",
         "zenix": "zenix_2"
       }
     },
@@ -2161,16 +2162,15 @@
     "zen-browser_2": {
       "inputs": {
         "nixpkgs": [
-          "zenix",
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1753676490,
-        "narHash": "sha256-XeifEftxYGP/gzp6O1yO1S1W+MEx4Xvrgeu84ryRPNQ=",
+        "lastModified": 1767618227,
+        "narHash": "sha256-9+XVF47E9NCVs249SSsDtr7YdG/23/lCJmWAjQvOfqI=",
         "owner": "youwen5",
         "repo": "zen-browser-flake",
-        "rev": "77024f4557204bb4d526893d42db2e6f50727fab",
+        "rev": "1586e49b3908b058e221f11d843eb46392dba17b",
         "type": "github"
       },
       "original": {
@@ -2218,7 +2218,9 @@
         "nixpkgs": [
           "nixpkgs"
         ],
-        "zen-browser": "zen-browser_2"
+        "zen-browser": [
+          "zen-browser"
+        ]
       },
       "locked": {
         "lastModified": 1764603872,
